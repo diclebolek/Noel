@@ -1,0 +1,824 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding: 100px 20px 20px 20px;
+}
+
+/* Responsive adjustments */
+/* Responsive Slider Styles */
+@media (max-width: 768px) {
+    .slider-wrapper {
+        height: 250px;
+    }
+    
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+    
+    .slider-description p {
+        font-size: 14px;
+    }
+    
+    .envelope-content {
+        width: 95vw;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-wrapper {
+        height: 200px;
+    }
+    
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+    
+    .prev-btn {
+        left: 5px;
+    }
+    
+    .next-btn {
+        right: 5px;
+    }
+    
+    .slider-description p {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding-top: 100px;
+    }
+    
+    .tree {
+        width: 100%;
+        max-width: 350px;
+        height: 600px;
+    }
+    
+    .star {
+        font-size: 32px;
+        top: 80px;
+    }
+    
+    .envelope-icon {
+        font-size: 40px;
+    }
+    
+    .envelope-content {
+        width: 90vw;
+        padding: 15px;
+    }
+}
+
+/* Kar taneleri efekti */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: #ffffff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: snowfall linear infinite;
+    opacity: 0.8;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 1s; }
+.snowflake:nth-child(3) { left: 30%; animation-duration: 14s; animation-delay: 2s; }
+.snowflake:nth-child(4) { left: 40%; animation-duration: 11s; animation-delay: 0.5s; }
+.snowflake:nth-child(5) { left: 50%; animation-duration: 13s; animation-delay: 1.5s; }
+.snowflake:nth-child(6) { left: 60%; animation-duration: 15s; animation-delay: 2.5s; }
+.snowflake:nth-child(7) { left: 70%; animation-duration: 10s; animation-delay: 0.3s; }
+.snowflake:nth-child(8) { left: 80%; animation-duration: 12s; animation-delay: 1.2s; }
+.snowflake:nth-child(9) { left: 90%; animation-duration: 14s; animation-delay: 2.2s; }
+.snowflake:nth-child(10) { left: 15%; animation-duration: 11s; animation-delay: 0.7s; }
+.snowflake:nth-child(11) { left: 25%; animation-duration: 13s; animation-delay: 1.7s; }
+.snowflake:nth-child(12) { left: 35%; animation-duration: 15s; animation-delay: 2.7s; }
+.snowflake:nth-child(13) { left: 45%; animation-duration: 10s; animation-delay: 0.2s; }
+.snowflake:nth-child(14) { left: 55%; animation-duration: 12s; animation-delay: 1.3s; }
+.snowflake:nth-child(15) { left: 65%; animation-duration: 14s; animation-delay: 2.3s; }
+.snowflake:nth-child(16) { left: 75%; animation-duration: 11s; animation-delay: 0.6s; }
+.snowflake:nth-child(17) { left: 85%; animation-duration: 13s; animation-delay: 1.6s; }
+.snowflake:nth-child(18) { left: 95%; animation-duration: 15s; animation-delay: 2.6s; }
+.snowflake:nth-child(19) { left: 5%; animation-duration: 10s; animation-delay: 0.4s; }
+.snowflake:nth-child(20) { left: 12%; animation-duration: 12s; animation-delay: 1.4s; }
+.snowflake:nth-child(21) { left: 22%; animation-duration: 14s; animation-delay: 2.4s; }
+.snowflake:nth-child(22) { left: 32%; animation-duration: 11s; animation-delay: 0.8s; }
+.snowflake:nth-child(23) { left: 42%; animation-duration: 13s; animation-delay: 1.8s; }
+.snowflake:nth-child(24) { left: 52%; animation-duration: 15s; animation-delay: 2.8s; }
+.snowflake:nth-child(25) { left: 62%; animation-duration: 10s; animation-delay: 0.1s; }
+.snowflake:nth-child(26) { left: 72%; animation-duration: 12s; animation-delay: 1.1s; }
+.snowflake:nth-child(27) { left: 82%; animation-duration: 14s; animation-delay: 2.1s; }
+.snowflake:nth-child(28) { left: 92%; animation-duration: 11s; animation-delay: 0.9s; }
+.snowflake:nth-child(29) { left: 8%; animation-duration: 13s; animation-delay: 1.9s; }
+.snowflake:nth-child(30) { left: 18%; animation-duration: 15s; animation-delay: 2.9s; }
+.snowflake:nth-child(31) { left: 28%; animation-duration: 10s; animation-delay: 0.25s; }
+.snowflake:nth-child(32) { left: 38%; animation-duration: 12s; animation-delay: 1.25s; }
+.snowflake:nth-child(33) { left: 48%; animation-duration: 14s; animation-delay: 2.25s; }
+.snowflake:nth-child(34) { left: 58%; animation-duration: 11s; animation-delay: 0.75s; }
+.snowflake:nth-child(35) { left: 68%; animation-duration: 13s; animation-delay: 1.75s; }
+.snowflake:nth-child(36) { left: 78%; animation-duration: 15s; animation-delay: 2.75s; }
+.snowflake:nth-child(37) { left: 88%; animation-duration: 10s; animation-delay: 0.35s; }
+.snowflake:nth-child(38) { left: 3%; animation-duration: 12s; animation-delay: 1.35s; }
+.snowflake:nth-child(39) { left: 13%; animation-duration: 14s; animation-delay: 2.35s; }
+.snowflake:nth-child(40) { left: 23%; animation-duration: 11s; animation-delay: 0.65s; }
+.snowflake:nth-child(41) { left: 33%; animation-duration: 13s; animation-delay: 1.65s; }
+.snowflake:nth-child(42) { left: 43%; animation-duration: 15s; animation-delay: 2.65s; }
+.snowflake:nth-child(43) { left: 53%; animation-duration: 10s; animation-delay: 0.15s; }
+.snowflake:nth-child(44) { left: 63%; animation-duration: 12s; animation-delay: 1.15s; }
+.snowflake:nth-child(45) { left: 73%; animation-duration: 14s; animation-delay: 2.15s; }
+.snowflake:nth-child(46) { left: 83%; animation-duration: 11s; animation-delay: 0.85s; }
+.snowflake:nth-child(47) { left: 93%; animation-duration: 13s; animation-delay: 1.85s; }
+.snowflake:nth-child(48) { left: 7%; animation-duration: 15s; animation-delay: 2.85s; }
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.8;
+    }
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 200px;
+}
+
+/* Star on Top */
+.star {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38px;
+    color: #ffd700;
+    text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 5;
+    opacity: 1;
+    filter: grayscale(0%);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+/* Mektup açıkken yıldızın arkasında kalması için */
+.envelope.active ~ .container .star,
+body:has(.envelope.active) .star {
+    z-index: 1;
+}
+
+.star.active {
+    color: #ffd700;
+    text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700;
+    animation: blink 1.5s ease-in-out infinite;
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.star:not(.active) {
+    color: #666;
+    text-shadow: none;
+    animation: none;
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.star:hover,
+.star:focus {
+    transform: translateX(-50%) scale(1.1);
+    outline: none;
+}
+
+.star:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+@keyframes blink {
+    0%, 100% { 
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700;
+    }
+    50% { 
+        transform: translateX(-50%) scale(1.1);
+        opacity: 0.7;
+        text-shadow: 0 0 30px #ffd700, 0 0 60px #ffd700, 0 0 80px #ffd700;
+    }
+}
+
+/* Yılbaşı Ağaç */
+.tree {
+    position: relative;
+    width: 500px;
+    height: 900px;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+/* SVG Ağaç */
+.tree-svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+/* Ornaments - Decorative balls and lights on the tree */
+.ornament {
+    position: absolute;
+    font-size: 22px;
+    animation: glow 3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* SVG içindeki süsler */
+.svg-ornament {
+    font-size: 24px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    animation: svgGlow 8s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Küçük ışıklı süsler */
+.light-ornament {
+    filter: drop-shadow(0 0 3px currentColor) drop-shadow(0 0 6px currentColor);
+    pointer-events: none;
+}
+
+/* Mor renkli yanıp sönen ikonlar */
+.purple-icon {
+    animation: purpleGlow 2s ease-in-out infinite !important;
+    filter: drop-shadow(0 0 5px rgba(128, 0, 128, 0.6)) drop-shadow(0 0 10px rgba(128, 0, 128, 0.4));
+    pointer-events: none;
+}
+
+/* Mor renkli H harfleri */
+.purple-h {
+    animation: purpleGlow 2s ease-in-out infinite !important;
+    filter: drop-shadow(0 0 5px rgba(147, 112, 219, 0.8)) drop-shadow(0 0 10px rgba(147, 112, 219, 0.5));
+    pointer-events: none;
+}
+
+@keyframes purpleGlow {
+    0%, 100% { 
+        opacity: 0.7;
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(128, 0, 128, 0.4)) drop-shadow(0 0 8px rgba(128, 0, 128, 0.3));
+    }
+    50% { 
+        opacity: 0.95;
+        transform: scale(1.02);
+        filter: drop-shadow(0 0 8px rgba(128, 0, 128, 0.6)) drop-shadow(0 0 12px rgba(128, 0, 128, 0.4));
+    }
+}
+
+/* #800000 renkli küçük kalp ikonları */
+.heart-icon {
+    animation: heartGlow 2s ease-in-out infinite !important;
+    filter: brightness(0.5) saturate(1.2) hue-rotate(-5deg) 
+            drop-shadow(0 0 4px rgba(128, 0, 0, 0.6)) 
+            drop-shadow(0 0 8px rgba(128, 0, 0, 0.4));
+    pointer-events: none;
+}
+
+@keyframes heartGlow {
+    0%, 100% { 
+        opacity: 0.7;
+        transform: scale(1);
+        filter: brightness(0.5) saturate(1.2) hue-rotate(-5deg)
+                drop-shadow(0 0 4px rgba(128, 0, 0, 0.4)) 
+                drop-shadow(0 0 6px rgba(128, 0, 0, 0.3));
+    }
+    50% { 
+        opacity: 0.95;
+        transform: scale(1.02);
+        filter: brightness(0.6) saturate(1.3) hue-rotate(-5deg)
+                drop-shadow(0 0 6px rgba(128, 0, 0, 0.6)) 
+                drop-shadow(0 0 10px rgba(128, 0, 0, 0.4));
+    }
+}
+
+/* Kırmızı süsleri bordo yap (#800020) ve yanıp sönsün */
+.red-ornament {
+    animation: redGlow 2s ease-in-out infinite;
+}
+
+@keyframes svgGlow {
+    0%, 100% { 
+        opacity: 0.7; 
+        transform: scale(1);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.05);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.5));
+    }
+}
+
+/* Mavi toplar için özel yanıp sönme */
+.blue-ornament {
+    animation: blueGlow 2s ease-in-out infinite !important;
+}
+
+/* Sarı toplar için özel yanıp sönme */
+.yellow-ornament {
+    animation: yellowGlow 2s ease-in-out infinite !important;
+}
+
+@keyframes blueGlow {
+    0%, 100% { 
+        opacity: 0.6;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(100, 150, 255, 0.6));
+    }
+    50% { 
+        opacity: 1;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(100, 150, 255, 1)) drop-shadow(0 0 30px rgba(100, 150, 255, 0.7));
+    }
+}
+
+@keyframes yellowGlow {
+    0%, 100% { 
+        opacity: 0.6;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(255, 255, 100, 0.6));
+    }
+    50% { 
+        opacity: 1;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(255, 255, 100, 1)) drop-shadow(0 0 30px rgba(255, 255, 100, 0.7));
+    }
+}
+
+@keyframes redGlow {
+    0%, 100% { 
+        opacity: 0.6;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) 
+                drop-shadow(0 0 10px rgba(128, 0, 32, 0.8))
+                brightness(0.5) 
+                saturate(1.5)
+                hue-rotate(-15deg)
+                contrast(1.2);
+    }
+    50% { 
+        opacity: 1;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) 
+                drop-shadow(0 0 20px rgba(128, 0, 32, 1))
+                drop-shadow(0 0 30px rgba(128, 0, 32, 0.8))
+                brightness(0.6) 
+                saturate(1.6)
+                hue-rotate(-15deg)
+                contrast(1.3);
+    }
+}
+
+/* Süsler artık SVG içinde, bu CSS kuralları kullanılmıyor */
+
+@keyframes glow {
+    0%, 100% { 
+        opacity: 0.8; 
+        transform: scale(1);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.15);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+    }
+}
+
+/* Gövde */
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 120px;
+    background: linear-gradient(90deg, #6b3410 0%, #8b4513 30%, #a0522d 50%, #8b4513 70%, #6b3410 100%);
+    border-radius: 8px;
+    box-shadow: 
+        inset -5px 0 10px rgba(0, 0, 0, 0.3),
+        inset 5px 0 10px rgba(255, 255, 255, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.trunk::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);
+    border-radius: 5px;
+}
+
+/* "Seni Seviyorum" yazısı - Neon pembe yanıp sönen */
+.love-message {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff1493;
+    text-shadow: 
+        0 0 10px #ff1493,
+        0 0 20px #ff1493,
+        0 0 30px #ff1493,
+        0 0 40px #ff69b4;
+    animation: neonPinkGlow 2s ease-in-out infinite;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    z-index: 3;
+}
+
+@keyframes neonPinkGlow {
+    0%, 100% { 
+        opacity: 0.7;
+        text-shadow: 
+            0 0 10px #ff1493,
+            0 0 20px #ff1493,
+            0 0 30px #ff1493,
+            0 0 40px #ff69b4;
+    }
+    50% { 
+        opacity: 1;
+        text-shadow: 
+            0 0 20px #ff1493,
+            0 0 30px #ff1493,
+            0 0 40px #ff1493,
+            0 0 50px #ff69b4,
+            0 0 60px #ff69b4,
+            0 0 70px #ff69b4;
+    }
+}
+
+/* Letters/Envelopes - Clickable letters on the tree */
+.envelope {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 4;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#envelope1 { bottom: 550px; left: 30%; }
+#envelope2 { bottom: 470px; left: 70%; }
+#envelope3 { bottom: 400px; left: 26%; }
+#envelope4 { bottom: 665px; left: 50%; transform: translateX(-50%); }
+#envelope5 { bottom: 290px; left: 50%; }
+
+.envelope:hover,
+.envelope:focus {
+    transform: scale(1.05);
+    outline: none;
+}
+
+.envelope.active .envelope-icon {
+    transform: scale(1.1);
+}
+
+.envelope-icon {
+    font-size: 50px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    display: block;
+    position: relative;
+}
+
+.envelope-icon::after {
+    content: '❤️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    filter: brightness(0.5) saturate(1.5) hue-rotate(-15deg) 
+            drop-shadow(0 0 4px rgba(128, 0, 32, 0.8));
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Zarf içeriği (başlangıçta gizli) */
+.envelope-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: linear-gradient(135deg, #fff9e6 0%, #ffe6cc 100%);
+    border: 3px solid #d4a574;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1001;
+    pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.envelope.active .envelope-content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: all;
+    z-index: 1002;
+    top: 50%;
+    left: 50%;
+    max-height: 90vh;
+}
+
+/* Mektup açıkken yıldızın z-index'ini düşür */
+body:has(.envelope.active) .star {
+    z-index: 1 !important;
+}
+
+/* Pasif mektupların z-index'ini düşür */
+.envelope:not(.active) {
+    z-index: 4;
+}
+
+.envelope.active {
+    z-index: 1000;
+}
+
+.envelope-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    font-size: 30px;
+    color: #8b4513;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    transform: scale(1.2);
+    outline: none;
+}
+
+.close-btn:active {
+    transform: scale(0.9);
+}
+
+.note-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: calc(90vh - 100px);
+    overflow-y: auto;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    position: relative;
+    will-change: transform;
+}
+
+.slide {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    position: relative;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    flex-basis: 100%;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #fff;
+    opacity: 1;
+    visibility: visible;
+    margin: 0 auto;
+}
+
+/* Resim yüklenme durumu */
+.slide-image[src] {
+    min-height: 200px;
+}
+
+.slide-image:not([src]),
+.slide-image[src=""] {
+    display: none;
+}
+
+/* Slider Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 69, 19, 0.8);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.slider-btn:hover,
+.slider-btn:focus {
+    background: rgba(139, 69, 19, 1);
+    transform: translateY(-50%) scale(1.1);
+    outline: none;
+}
+
+.slider-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Slider Dots */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(139, 69, 19, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    touch-action: manipulation;
+}
+
+.slider-dot.active {
+    background: #8b4513;
+    transform: scale(1.2);
+}
+
+.slider-dot:hover,
+.slider-dot:focus {
+    background: rgba(139, 69, 19, 0.7);
+    outline: none;
+}
+
+/* Slider Description */
+.slider-description {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    border: 2px solid #d4a574;
+}
+
+.slider-description p {
+    font-size: 16px;
+    color: #8b4513;
+    text-align: center;
+    margin: 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Overlay (background darkening when envelope is open) */
+.envelope.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    pointer-events: all;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Christmas Tree</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Kar taneleri -->
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+    </div>
+    <div class="container">
+        <div class="star active" id="star" role="button" aria-label="Star on top of tree - click to toggle glow" tabindex="0">⭐</div>
+        <div class="tree">
+            <!-- Gerçekçi SVG Ağaç - Klasik Yılbaşı Ağacı Şekli -->
+            <svg class="tree-svg" viewBox="0 0 600 900" preserveAspectRatio="xMidYBottom">
+                <!-- Ağaç gölgesi -->
+                <ellipse cx="300" cy="850" rx="250" ry="35" fill="rgba(0,0,0,0.4)" opacity="0.6"/>
+                
+                <!-- Ağaç katmanları - Klasik üçgen şeklinde yılbaşı ağacı -->
+                <!-- En alt katman (6. katman) - En geniş ve uzun -->
+                <polygon points="300,480 0,720 600,720" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="2" opacity="0.95"/>
+                <polygon points="300,500 20,720 580,720" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,520 40,720 560,720" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - En alt katman ortasına -->
+                <circle cx="300" cy="495" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+                </circle>
+                
+                <!-- 5. katman -->
+                <polygon points="300,400 10,600 590,600" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="2" opacity="0.95"/>
+                <polygon points="300,420 30,600 570,600" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,440 50,600 550,600" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - 5. katman ortasına -->
+                <circle cx="300" cy="415" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+                </circle>
+                
+                <!-- 4. katman -->
+                <polygon points="300,320 20,500 580,500" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="2" opacity="0.95"/>
+                <polygon points="300,340 35,500 565,500" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,360 50,500 550,500" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - 4. katman ortasına -->
+                <circle cx="300" cy="335" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+                </circle>
+                
+                <!-- 3. katman -->
+                <polygon points="300,240 30,400 570,400" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="2" opacity="0.95"/>
+                <polygon points="300,260 45,400 555,400" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,280 60,400 540,400" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - 3. katman ortasına -->
+                <circle cx="300" cy="255" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                </circle>
+                
+                <!-- 2. katman -->
+                <polygon points="300,170 40,300 560,300" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="2" opacity="0.95"/>
+                <polygon points="300,190 55,300 545,300" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,210 70,300 530,300" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - 2. katman ortasına -->
+                <circle cx="300" cy="185" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+                </circle>
+                
+                <!-- 1. katman (üst) -->
+                <polygon points="300,110 60,220 540,220" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="2" opacity="0.95"/>
+                <polygon points="300,130 75,220 525,220" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,150 90,220 510,220" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - 1. katman ortasına -->
+                <circle cx="300" cy="125" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- En üst sivri tepe - yıldız için -->
+                <polygon points="300,50 140,130 460,130" 
+                         fill="#0a5d2e" stroke="#064020" stroke-width="1.5" opacity="0.95"/>
+                <polygon points="300,60 150,130 450,130" 
+                         fill="#0d7a3d" opacity="0.85"/>
+                <polygon points="300,70 160,130 440,130" 
+                         fill="#0fa855" opacity="0.75"/>
+                
+                <!-- Küçük ışıklı süsler - En üst sivri tepe ortasına -->
+                <circle cx="300" cy="60" r="3" fill="#ffff00" opacity="0.9" class="light-ornament">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Ekstra yeşillik detayları -->
+                <circle cx="180" cy="600" r="12" fill="#0fa855" opacity="0.5"/>
+                <circle cx="420" cy="600" r="12" fill="#0fa855" opacity="0.5"/>
+                <circle cx="160" cy="500" r="10" fill="#0fa855" opacity="0.5"/>
+                <circle cx="440" cy="500" r="10" fill="#0fa855" opacity="0.5"/>
+                <circle cx="150" cy="400" r="9" fill="#0fa855" opacity="0.5"/>
+                <circle cx="450" cy="400" r="9" fill="#0fa855" opacity="0.5"/>
+                <circle cx="140" cy="300" r="8" fill="#0fa855" opacity="0.5"/>
+                <circle cx="460" cy="300" r="8" fill="#0fa855" opacity="0.5"/>
+                <circle cx="160" cy="220" r="7" fill="#0fa855" opacity="0.5"/>
+                <circle cx="440" cy="220" r="7" fill="#0fa855" opacity="0.5"/>
+                
+                <!-- Süslemeler - SVG içinde, üçgenlerin ortalarına yakın -->
+                <!-- En üstteki üçgenler için süsler (tepe: 300,50, taban: 140-460, y=130) -->
+                <text x="280" y="85" class="svg-ornament blue-ornament" style="animation-delay: 0s;">🔵</text>
+                <text x="340" y="85" class="svg-ornament red-ornament" style="animation-delay: 0.2s;">🔴</text>
+                <text x="320" y="80" class="svg-ornament yellow-ornament" style="animation-delay: 0.4s;">🟡</text>
+                <text x="270" y="90" class="svg-ornament" style="animation-delay: 0.6s;">⭐</text>
+                <text x="330" y="90" class="svg-ornament" style="animation-delay: 0.8s;">✨</text>
+                <!-- Alt köşeler -->
+                <text x="150" y="125" class="svg-ornament yellow-ornament" style="animation-delay: 0.1s;">🟡</text>
+                <text x="450" y="125" class="svg-ornament blue-ornament" style="animation-delay: 0.3s;">🔵</text>
+                
+                <!-- 1. katman süsleri (tepe: 300,130, taban: 60-540, y=220) -->
+                <text x="220" y="160" class="svg-ornament" style="animation-delay: 1s;">🎄</text>
+                <text x="380" y="160" class="svg-ornament" style="animation-delay: 1.2s;">🎁</text>
+                <text x="270" y="170" class="svg-ornament yellow-ornament" style="animation-delay: 1.4s;">🟡</text>
+                <text x="340" y="170" class="svg-ornament blue-ornament" style="animation-delay: 1.6s;">🔵</text>
+                <text x="360" y="180" class="svg-ornament red-ornament" style="animation-delay: 1.8s;">🔴</text>
+                <text x="360" y="180" class="svg-ornament" style="animation-delay: 2s;">⭐</text>
+                <!-- Alt köşeler -->
+                <text x="70" y="215" class="svg-ornament blue-ornament" style="animation-delay: 1.1s;">🔵</text>
+                <text x="530" y="215" class="svg-ornament" style="animation-delay: 1.3s;">⭐</text>
+                
+                <!-- 2. katman süsleri (tepe: 300,170, taban: 40-560, y=300) -->
+                <text x="200" y="230" class="svg-ornament" style="animation-delay: 0.1s;">🎀</text>
+                <text x="400" y="230" class="svg-ornament" style="animation-delay: 0.3s;">✨</text>
+                <text x="270" y="240" class="svg-ornament blue-ornament" style="animation-delay: 0.5s;">🔵</text>
+                <text x="350" y="240" class="svg-ornament red-ornament" style="animation-delay: 0.7s;">🔴</text>
+                <text x="210" y="250" class="svg-ornament yellow-ornament" style="animation-delay: 0.9s;">🟡</text>
+                <text x="370" y="250" class="svg-ornament" style="animation-delay: 1.1s;">🎄</text>
+                <!-- Alt köşeler -->
+                <text x="50" y="295" class="svg-ornament" style="animation-delay: 0.2s;">🎁</text>
+                <text x="550" y="295" class="svg-ornament" style="animation-delay: 0.4s;">✨</text>
+                
+                <!-- 3. katman süsleri (tepe: 300,240, taban: 30-570, y=400) -->
+                <text x="190" y="320" class="svg-ornament" style="animation-delay: 1.3s;">🎁</text>
+                <text x="410" y="320" class="svg-ornament" style="animation-delay: 1.5s;">⭐</text>
+                <text x="270" y="330" class="svg-ornament yellow-ornament" style="animation-delay: 1.7s;">🟡</text>
+                <text x="350" y="330" class="svg-ornament blue-ornament" style="animation-delay: 1.9s;">🔵</text>
+                <text x="210" y="340" class="svg-ornament red-ornament" style="animation-delay: 2.1s;">🔴</text>
+                <text x="370" y="340" class="svg-ornament" style="animation-delay: 2.3s;">✨</text>
+                <!-- Alt köşeler -->
+                <text x="40" y="395" class="svg-ornament" style="animation-delay: 1.4s;">🎀</text>
+                <text x="560" y="395" class="svg-ornament" style="animation-delay: 1.6s;">🎄</text>
+                
+                <!-- 4. katman süsleri (tepe: 300,320, taban: 20-580, y=500) -->
+                <text x="180" y="400" class="svg-ornament" style="animation-delay: 0.2s;">🎀</text>
+                <text x="420" y="400" class="svg-ornament" style="animation-delay: 0.4s;">🎄</text>
+                <text x="270" y="410" class="svg-ornament blue-ornament" style="animation-delay: 0.6s;">🔵</text>
+                <text x="350" y="410" class="svg-ornament yellow-ornament" style="animation-delay: 0.8s;">🟡</text>
+                <text x="200" y="420" class="svg-ornament red-ornament" style="animation-delay: 1s;">🔴</text>
+                <text x="370" y="420" class="svg-ornament" style="animation-delay: 1.2s;">⭐</text>
+                <!-- Alt köşeler -->
+                <text x="30" y="495" class="svg-ornament blue-ornament" style="animation-delay: 0.3s;">🔵</text>
+                <text x="570" y="495" class="svg-ornament red-ornament" style="animation-delay: 0.5s;">🔴</text>
+                
+                <!-- 5. katman süsleri (tepe: 300,400, taban: 10-590, y=600) -->
+                <text x="170" y="480" class="svg-ornament" style="animation-delay: 1.4s;">🎁</text>
+                <text x="430" y="480" class="svg-ornament" style="animation-delay: 1.6s;">✨</text>
+                <text x="270" y="490" class="svg-ornament yellow-ornament" style="animation-delay: 1.8s;">🟡</text>
+                <text x="350" y="490" class="svg-ornament red-ornament" style="animation-delay: 2s;">🔴</text>
+                <text x="190" y="500" class="svg-ornament blue-ornament" style="animation-delay: 2.2s;">🔵</text>
+                <text x="380" y="500" class="svg-ornament" style="animation-delay: 2.4s;">🎄</text>
+                <!-- Alt köşeler -->
+                <text x="20" y="595" class="svg-ornament" style="animation-delay: 1.5s;">⭐</text>
+                <text x="580" y="595" class="svg-ornament" style="animation-delay: 1.7s;">✨</text>
+                
+                <!-- En alt katman süsleri (tepe: 300,480, taban: 0-600, y=720) -->
+                <text x="160" y="580" class="svg-ornament" style="animation-delay: 0.3s;">🎀</text>
+                <text x="440" y="580" class="svg-ornament" style="animation-delay: 0.5s;">⭐</text>
+                <text x="270" y="590" class="svg-ornament blue-ornament" style="animation-delay: 0.7s;">🔵</text>
+                <text x="350" y="590" class="svg-ornament red-ornament" style="animation-delay: 0.9s;">🔴</text>
+                <text x="190" y="600" class="svg-ornament yellow-ornament" style="animation-delay: 1.1s;">🟡</text>
+                <text x="380" y="600" class="svg-ornament" style="animation-delay: 1.3s;">✨</text>
+                <!-- En alt üçgen içine ek süsler -->
+                <text x="200" y="620" class="svg-ornament" style="animation-delay: 0.8s;">🎄</text>
+                <text x="400" y="620" class="svg-ornament" style="animation-delay: 1s;">🎁</text>
+                <text x="290" y="640" class="svg-ornament yellow-ornament" style="animation-delay: 1.2s;">🟡</text>
+                <text x="320" y="640" class="svg-ornament blue-ornament" style="animation-delay: 1.4s;">🔵</text>
+                <text x="260" y="660" class="svg-ornament red-ornament" style="animation-delay: 1.6s;">🔴</text>
+                <text x="360" y="660" class="svg-ornament" style="animation-delay: 1.8s;">⭐</text>
+                <text x="300" y="680" class="svg-ornament" style="animation-delay: 2s;">✨</text>
+                <!-- Alt köşeler (sabit) -->
+                <text x="10" y="715" class="svg-ornament" style="animation-delay: 0.4s;">🎁</text>
+                <text x="590" y="715" class="svg-ornament" style="animation-delay: 0.6s;">🎄</text>
+                
+                <!-- Mor renkli yanıp sönen küçük ikonlar ve H harfi -->
+                <text x="160" y="200" class="svg-ornament purple-icon" style="animation-delay: 0.2s; font-size: 16px;">💜</text>
+                <text x="440" y="200" class="svg-ornament purple-icon" style="animation-delay: 0.4s; font-size: 16px;">💜</text>
+                <text x="280" y="280" class="svg-ornament purple-icon" style="animation-delay: 0.6s; font-size: 16px;">💜</text>
+                <text x="320" y="280" class="svg-ornament purple-icon" style="animation-delay: 0.8s; font-size: 16px;">💜</text>
+                <text x="200" y="380" class="svg-ornament purple-icon" style="animation-delay: 1s; font-size: 16px;">💜</text>
+                <text x="400" y="380" class="svg-ornament purple-icon" style="animation-delay: 1.2s; font-size: 16px;">💜</text>
+                <text x="240" y="450" class="svg-ornament purple-icon" style="animation-delay: 1.4s; font-size: 16px;">💜</text>
+                <text x="360" y="450" class="svg-ornament purple-icon" style="animation-delay: 1.6s; font-size: 16px;">💜</text>
+                <text x="180" y="530" class="svg-ornament purple-icon" style="animation-delay: 1.8s; font-size: 16px;">💜</text>
+                <text x="420" y="530" class="svg-ornament purple-icon" style="animation-delay: 2s; font-size: 16px;">💜</text>
+                
+                <!-- H harfleri -->
+                <text x="300" y="220" class="svg-ornament purple-h" style="animation-delay: 0.3s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                <text x="150" y="300" class="svg-ornament purple-h" style="animation-delay: 0.5s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                <text x="450" y="300" class="svg-ornament purple-h" style="animation-delay: 0.7s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                <text x="300" y="380" class="svg-ornament purple-h" style="animation-delay: 0.9s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                <text x="140" y="450" class="svg-ornament purple-h" style="animation-delay: 1.1s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                <text x="460" y="450" class="svg-ornament purple-h" style="animation-delay: 1.3s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                <text x="300" y="520" class="svg-ornament purple-h" style="animation-delay: 1.5s; font-size: 18px; font-weight: bold; fill: #9370DB;">H</text>
+                
+                <!-- #800000 renkli küçük kalp ikonları -->
+                <text x="170" y="180" class="svg-ornament heart-icon" style="animation-delay: 0.1s; font-size: 14px;">❤️</text>
+                <text x="430" y="180" class="svg-ornament heart-icon" style="animation-delay: 0.3s; font-size: 14px;">❤️</text>
+                <text x="230" y="260" class="svg-ornament heart-icon" style="animation-delay: 0.5s; font-size: 14px;">❤️</text>
+                <text x="370" y="260" class="svg-ornament heart-icon" style="animation-delay: 0.7s; font-size: 14px;">❤️</text>
+                <text x="190" y="310" class="svg-ornament heart-icon" style="animation-delay: 0.9s; font-size: 14px;">❤️</text>
+                <text x="410" y="310" class="svg-ornament heart-icon" style="animation-delay: 1.1s; font-size: 14px;">❤️</text>
+                <text x="250" y="370" class="svg-ornament heart-icon" style="animation-delay: 1.3s; font-size: 14px;">❤️</text>
+                <text x="350" y="370" class="svg-ornament heart-icon" style="animation-delay: 1.5s; font-size: 14px;">❤️</text>
+                <text x="160" y="430" class="svg-ornament heart-icon" style="animation-delay: 1.7s; font-size: 14px;">❤️</text>
+                <text x="440" y="430" class="svg-ornament heart-icon" style="animation-delay: 1.9s; font-size: 14px;">❤️</text>
+                <text x="220" y="480" class="svg-ornament heart-icon" style="animation-delay: 2.1s; font-size: 14px;">❤️</text>
+                <text x="380" y="480" class="svg-ornament heart-icon" style="animation-delay: 2.3s; font-size: 14px;">❤️</text>
+                <text x="270" y="550" class="svg-ornament heart-icon" style="animation-delay: 0.2s; font-size: 14px;">❤️</text>
+                <text x="330" y="550" class="svg-ornament heart-icon" style="animation-delay: 0.4s; font-size: 14px;">❤️</text>
+                <text x="200" y="610" class="svg-ornament heart-icon" style="animation-delay: 0.6s; font-size: 14px;">❤️</text>
+                <text x="400" y="610" class="svg-ornament heart-icon" style="animation-delay: 0.8s; font-size: 14px;">❤️</text>
+            </svg>
+            
+            <!-- "Seni Seviyorum" yazısı - Ağacın altında -->
+            <div class="love-message">Seni Seviyorum</div>
+            
+            <!-- Letters/Envelopes on the Tree -->
+            <div class="envelope" id="envelope1" role="button" aria-label="Letter 1 on the tree - click to open" tabindex="0">
+                <div class="envelope-icon">✉️</div>
+                <div class="envelope-content">
+                    <div class="envelope-header">
+                        <span class="close-btn" aria-label="Close letter" role="button" tabindex="0">×</span>
+                    </div>
+                    <div class="note-area">
+                        <div class="slider-container">
+                            <div class="slider-wrapper">
+                                <div class="slider-track">
+                                    <div class="slide active">
+                                        <img src="images/1 (2).jpeg" alt="Resim 1" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/2.jpeg" alt="Resim 2" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/3.jpeg" alt="Resim 3" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/4.jpeg" alt="Resim 4" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/5.jpeg" alt="Resim 5" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/6.jpeg" alt="Resim 6" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/7.jpeg" alt="Resim 7" class="slide-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="slider-btn prev-btn" aria-label="Önceki resim">‹</button>
+                            <button class="slider-btn next-btn" aria-label="Sonraki resim">›</button>
+                            <div class="slider-dots"></div>
+                        </div>
+                        <div class="slider-description">
+                            <p>İyi ki girdin hayatıma sevgilim. Bu zamanki tatlı heyecanlarımızı hiç unutamıyorum, ayaklarım yerden kesilmişti. İyi ki geldin bana, hayalimi daha da güzelleştirip gerçekleştirdin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="envelope" id="envelope2" role="button" aria-label="Letter 2 on the tree - click to open" tabindex="0">
+                <div class="envelope-icon">✉️</div>
+                <div class="envelope-content">
+                    <div class="envelope-header">
+                        <span class="close-btn" aria-label="Close letter" role="button" tabindex="0">×</span>
+                    </div>
+                    <div class="note-area">
+                        <div class="slider-container">
+                            <div class="slider-wrapper">
+                                <div class="slider-track">
+                                    <div class="slide active">
+                                        <img src="images/7.2.yanyana.jpeg" alt="Resim 1" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/7.3.jpeg" alt="Resim 2" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/8.1.jpeg" alt="Resim 3" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/8.2.jpeg" alt="Resim 4" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.1.jpeg" alt="Resim 5" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.2.jpeg" alt="Resim 6" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.3.jpeg" alt="Resim 7" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.4.jpeg" alt="Resim 8" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.5.jpeg" alt="Resim 9" class="slide-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="slider-btn prev-btn" aria-label="Önceki resim">‹</button>
+                            <button class="slider-btn next-btn" aria-label="Sonraki resim">›</button>
+                            <div class="slider-dots"></div>
+                        </div>
+                        <div class="slider-description">
+                            <p>Her anım senle olsun istiyorum. Gözlerimiz hep böyle parıldasın. İyi ki varsın, iyi ki benimsin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="envelope" id="envelope3" role="button" aria-label="Letter 3 on the tree - click to open" tabindex="0">
+                <div class="envelope-icon">✉️</div>
+                <div class="envelope-content">
+                    <div class="envelope-header">
+                        <span class="close-btn" aria-label="Close letter" role="button" tabindex="0">×</span>
+                    </div>
+                    <div class="note-area">
+                        <div class="slider-container">
+                            <div class="slider-wrapper">
+                                <div class="slider-track">
+                                    <div class="slide active">
+                                        <img src="images/9.6.jpeg" alt="Resim 1" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.7.jpeg" alt="Resim 2" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.8.jpeg" alt="Resim 3" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.9.jpeg" alt="Resim 4" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.10.jpeg" alt="Resim 5" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.11.jpeg" alt="Resim 6" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.12.jpeg" alt="Resim 7" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.13.jpeg" alt="Resim 8" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.14.jpeg" alt="Resim 9" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.15.jpeg" alt="Resim 10" class="slide-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="slider-btn prev-btn" aria-label="Önceki resim">‹</button>
+                            <button class="slider-btn next-btn" aria-label="Sonraki resim">›</button>
+                            <div class="slider-dots"></div>
+                        </div>
+                        <div class="slider-description">
+                            <p>Yanımda olduğunda her şey tamamlanıyor. Seni hep hayatımda, hep kalbimde istiyorum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="envelope" id="envelope4" role="button" aria-label="Letter 4 on the tree - click to open" tabindex="0">
+                <div class="envelope-icon">✉️</div>
+                <div class="envelope-content">
+                    <div class="envelope-header">
+                        <span class="close-btn" aria-label="Close letter" role="button" tabindex="0">×</span>
+                    </div>
+                    <div class="note-area">
+                        <div class="slider-container">
+                            <div class="slider-wrapper">
+                                <div class="slider-track">
+                                    <div class="slide active">
+                                        <img src="images/9.16.jpeg" alt="Resim 1" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/9.17.jpeg" alt="Resim 2" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10_sakarya.jpeg" alt="Resim 3" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10.1.jpeg" alt="Resim 4" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10.2.jpeg" alt="Resim 5" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10.3.jpeg" alt="Resim 6" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10.4.jpeg" alt="Resim 7" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10.5.jpeg" alt="Resim 8" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/10.6.jpeg" alt="Resim 9" class="slide-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="slider-btn prev-btn" aria-label="Önceki resim">‹</button>
+                            <button class="slider-btn next-btn" aria-label="Sonraki resim">›</button>
+                            <div class="slider-dots"></div>
+                        </div>
+                        <div class="slider-description">
+                            <p>Yanımda olmanı, elimi tutmanı, birlikte gülmeyi o kadar çok seviyorum ki yanında sıkılmadığım tek insansın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="envelope" id="envelope5" role="button" aria-label="Letter 5 on the tree - click to open" tabindex="0">
+                <div class="envelope-icon">✉️</div>
+                <div class="envelope-content">
+                    <div class="envelope-header">
+                        <span class="close-btn" aria-label="Close letter" role="button" tabindex="0">×</span>
+                    </div>
+                    <div class="note-area">
+                        <div class="slider-container">
+                            <div class="slider-wrapper">
+                                <div class="slider-track">
+                                    <div class="slide active">
+                                        <img src="images/11.jpeg" alt="Resim 1" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/11.1.jpeg" alt="Resim 2" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/11.2.jpeg" alt="Resim 3" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/11.3.jpeg" alt="Resim 4" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/11.4.jpeg" alt="Resim 5" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/11.5.jpeg" alt="Resim 6" class="slide-image">
+                                    </div>
+                                    <div class="slide">
+                                        <img src="images/11.6.jpeg" alt="Resim 7" class="slide-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="slider-btn prev-btn" aria-label="Önceki resim">‹</button>
+                            <button class="slider-btn next-btn" aria-label="Sonraki resim">›</button>
+                            <div class="slider-dots"></div>
+                        </div>
+                        <div class="slider-description">
+                            <p>Bu yıl da, sonraki tüm yıllar da böyle acısıyla tatlısıyla aşk dolu bir yıl geçirmek dileğiyle. O bakışların, o gülüşün… Yakışıklılığın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
